@@ -2,9 +2,25 @@
 {
     internal class Program
     {
-        static List<int> PicchiDifrequenza(List<int> liste)
+        static int PicchiDifrequenza(List<int> liste)
         {
-
+            int numPiùRipetuto = 0;
+            for(int i = 0; i < liste.Count; i++)
+            {
+                int contatore = 0;
+                for (int j = 0; j < liste.Count; j++)
+                {
+                    if (liste[i] == liste[j])
+                    {
+                        contatore++;
+                    }
+                }
+                if (contatore > numPiùRipetuto)
+                {
+                    numPiùRipetuto = liste[i];
+                }
+            }
+            return numPiùRipetuto;
         }
         static List<int> Inversione(List<int> liste, int num)
         {
@@ -52,6 +68,10 @@
             {
                 Console.Write(j);
             }
+            List<int> listaEs3 = new List<int>() { 4, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9 };
+            int numPiùRipetuto = PicchiDifrequenza(listaEs3);
+            Console.WriteLine("Il numero più ripetuto è: " + numPiùRipetuto);
+
 
 
         }
